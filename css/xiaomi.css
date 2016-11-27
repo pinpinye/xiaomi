@@ -1,4 +1,3 @@
-@charset "utf-8";
 /* -------- color guide ----------
  #FF5100: main orange
 #1F1F1F : main black
@@ -21,8 +20,12 @@
           ^6 Region detail styles
                   ^6a header
                   ^6b Navigation
-                  ^6c floor container
-                  ^6d Footer
+                  ^6c Main Content
+                        ^6d data tables
+                        ^6e spotlight region
+                        ^6f forms
+                ^6g Sidebar
+                ^6h Footer
 */
 
 
@@ -180,11 +183,8 @@ li {
 
 html {
         font-size: 20px;
-        /*font-family: Myriad Set Pro, Helvetica Neue, Helvetica, Arial, sans-serif;*/
+        font-family: "Myriad Set Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
         quotes: "“" "”";
-        font-family: Helvetica, Microsoft yahei, Arial;
-        -webkit-text-size-adjust:none;
-
 }
 
 body {
@@ -192,6 +192,23 @@ body {
 }
 
 
+.product-container,.hot-container,.floor-container,.footer-wrapper {
+    overflow: hidden;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.footer {
+    width: 100%;
+    background-color: #FFFFFF;
+    margin-top: 1rem;
+}
+
+.help-wrapper {
+    width: 90%;
+    height: 200px;
+    margin: 0 auto;
+}
 /* ^6 --------------------------- Region layout and  styles -------------------------*/
 
 
@@ -254,19 +271,15 @@ body {
 
 .nav-container a {
         color: #1F1F1F;
-        font-size: 0.7rem;
+        font-size: 0.9rem;
 }
 
 .nav-icon {
         background: url(../img/icon.png) no-repeat;
-        background-size:contain;
-        height: 2rem;
-        width: 2rem;
-        max-height: 40px;
-        max-width: 40px;
-        min-height: 30px;
-        min-width: 30px;
-        margin-left: 0.3rem;
+        width: 4rem;
+        height: 4rem;
+        background-size: 2rem 2rem;
+        margin-left: 0.8rem;
         text-align: center;
         float: left;
 }
@@ -274,13 +287,13 @@ body {
 .nav-icon a {
         color: #FF5100;
         position: relative;
-        top: 0;
-        left: 50px;
-        font-size: 30px;
+        top: 0.7rem;
+        left: 2.5rem;
+        font-size: 1.5rem;
 }
 
 .nav-wrap {
-        margin-left: 5rem;
+        margin-left: 80px;
         width: 60%;
         height: 80px;
         line-height: 80px;
@@ -290,7 +303,6 @@ body {
 }
 
 .nav-main {
-        z-index: 300;
         position: relative;
         display: inline;
         margin-left: 1rem;
@@ -312,7 +324,7 @@ body {
 .main-search {
         position: relative;
         display: inline-block;
-        top: 35px;
+        top: 40px;
 }
 
 
@@ -323,8 +335,7 @@ body {
         color: #A0A0A0;
         position: relative;
         left: -1.5rem;
-        top:.1rem;
-        font-size: 20px;
+        font-size: 1rem;
 }
 
 
@@ -336,10 +347,9 @@ body {
         float: left;
         width: 7.5rem;
         height: 1.8rem;
-        min-height: 26px;
         max-height: 44px;
         padding-left: 7px;
-        font-size: 12px;
+        font-size: 0.6rem;
         font-weight: 80;
         bottom: .3rem;
 }
@@ -373,8 +383,7 @@ body {
 
 .cart-wrap {
         display: inline-block;
-        width: 4rem;
-        min-width: 80px;
+        width: 80px;
         position: absolute;
         padding: 10px;
         height: 30px;
@@ -382,27 +391,15 @@ body {
         top: 25px;
 }
 
+.icon-shopping-cart {
+    font-size: 1.5rem;
+}
+
 .cart-name {
     margin-left: .5rem;
     font-size: .6rem;
     color: #A0A0A0;
 }
-
-.cart-name:hover {
-    margin-left: .5rem;
-    font-size: .6rem;
-    color:#FF5100;
-}
-
-.icon-shopping-cart {
-    font-size: 20px;
-}
-
-.icon-shopping-cart:hover {
-    color: #FF5100;
-}
-
-
 
 
 
@@ -421,8 +418,13 @@ body {
 /* 左侧导航样式 */
 
 .leftnav-wrap {
+        width: 10rem;
+        min-width: 200px;
+        height: 20rem;
+        min-height: 400px;
         line-height: 36.363px;
         position: absolute;
+        /* left: 16px; */
         top: 70px;
         z-index: 100;
         visibility: hidden;
@@ -437,12 +439,11 @@ body {
         text-align: left;
         position: relative;
         visibility: visible;
-        height: 38px;
-        z-index: 0;
+        z-index: 2;
 }
 
 .left-tittle a {
-        font-size: 14px !important;
+        font-size: 16px !important;
         position: relative;
         left: 1rem;
 }
@@ -454,7 +455,6 @@ body {
 
 .icon-reorder {
         margin-left: 10px;
-         font-size: 16px;
 }
 
 
@@ -465,8 +465,9 @@ body {
         position: relative;
         list-style-type: none;
         opacity: 0;
+        /* width: 180px;  */
         width: 9rem;
-        height: 420px;
+        height: 380px;
         visibility: hidden;
         background-color: #3B3B3B;
 }
@@ -486,7 +487,7 @@ body {
 
 .list-div a {
         display: inline;
-        font-size: 14px;
+        font-size: .7rem;
         color: #EDEDED;
 }
 
@@ -538,15 +539,17 @@ body {
         display: inline;
         z-index: 2;
         position: absolute;
-        font-size: 12px;
-        width: 28rem;
-        height: 419px;
+        font-size: .7rem !important;
+        width: 27rem;
+        /* min-width: 540px; */
+        height: 18.95rem;
         min-height: 379px;
+        /* left180px; */
         overflow-y: scroll;
-        overflow-x: hidden;
-        left:9rem;
-        top: 0;
+        left: 9rem;
+        top: 0px;
         background-color: #FFFFFF;
+        opacity: 0;
         border-top: 1px solid #E5E5E5;
 }
 
@@ -562,9 +565,9 @@ body {
         position: relative;
         top: 15px;
         float: left;
-        width: 8.5rem;
-        /*height: 360px;*/
-        /*min-height: 360px;*/
+        width: 9rem;
+        height: 18rem;
+        min-height: 360px;
         line-height: 60px;
         text-align: center;
 }
@@ -635,11 +638,9 @@ body {
         display: inline;
         position: relative;
         font-size: 3.5rem;
-        height: 2rem;
-        line-height: 2rem;
         background-color: #FFFFFF;
         opacity: 0.4;
-        width: 1.5rem;
+        width: 2rem;
         z-index: 10;
 }
 
@@ -654,7 +655,7 @@ body {
         position: absolute;
         top: 15rem;
         left: 0;
-        padding: .5rem 1rem 1rem 0;
+        padding: .5rem .5rem 1rem .5rem;
 }
 
 .right-control {
@@ -1256,7 +1257,7 @@ html {
 
 .icon-play-circle {
         color: #A0A0A0 !important;
-        font-size: 36px !important;
+        font-size: 2rem !important;
 }
 
 .icon-play-circle:hover,
@@ -1304,7 +1305,7 @@ html {
 
 .six-help {
         float: left;
-        margin-left: 3.8rem;
+        margin-left: 3rem;
         margin-top: 2rem;
         text-align: center;
         font-size: .9rem;
@@ -1326,7 +1327,7 @@ html {
 
 .contact-help {
         float: left;
-        margin: 2rem 2rem 2rem 5rem;
+        margin: 2rem 1rem 2rem 5rem;
         line-height: 1.5rem;
 }
 
@@ -1363,7 +1364,7 @@ html {
                 width: 17rem;
         }
         100% {
-                width: 18rem;
+                width: 20rem;
                 border: 1px solid #FF5100;
                 border-radius: 5px;
         }
@@ -1408,35 +1409,10 @@ html {
 
 /* 媒体查询 */
 
-@media only screen and (min-width: 800px) and (max-width:1280px)  {
-    /* 主导航字体 */
-    .nav-main a {
-        font-size: 14px !important;
-    }
-}
-
-
-@media only screen and (min-width: 1400px) {
-    /* 左侧导航宽度 */
-    .left-list {
-        width: 197px;
-    }
-
-    .child-div {
-        left:197px;
-    }
-
-}
-
-@media only screen and (max-width: 990px) {
+@media only screen and (max-width: 980px) {
         /* 隐藏左侧导航箭头 */
         .nav-arrow {
                 display: none;
-        }
-        /*左侧主导航字体*/
-        .list-div a {
-            font-size: 12px;
-
         }
 
         /* 影藏热评产品楼层的产品描述 */
@@ -1455,12 +1431,10 @@ html {
         .video-intro {
                 display: none;
         }
-
-
 }
 
-@media only screen and (max-width: 880px) {
- /* 改变根节点大小  */
+@media only screen and (max-width: 800px) {
+         /* 改变根节点大小  */
         body {
             font-size: 12px;
          }
@@ -1469,24 +1443,6 @@ html {
         .top-nav-wrap {
                 display: none;
         }
-
-            /* 左侧导航子导航 */
-    .child-div, .child-div ul {
-        width: 18rem;
-    }
-
-    .child-div ul li {
-        width: 8.5rem;
-        display: inline;
-        float: left;
-    }
-
-    /*左侧导航字体*/
-    .list-div a {
-        font-size: 12px;
-    }
-
-
 
         /* 隐藏banner上方主导航 */
         .nav-wrap {
@@ -1536,13 +1492,18 @@ html {
                 margin-left: .5rem;
         }
 
-        /* 隐藏左侧导航"全部分类"文字 */
+        /* 隐藏左侧导航全部分类文字 */
         .left-tittle a {
                 display: none;
         }
 
 }
 
+@media only screen and (max-width: 770px) {
+    .footer {
+        display: none;
+    }
+}
 
 /* 左侧导航变窄子导航变成内部滚动 */
 @media only screen and (max-width: 770px) {
@@ -1550,11 +1511,17 @@ html {
     .footer {
         display: none;
     }
- .nav-icon a {
-    display: none;
-}
 
+    /* 左侧导航子导航 */
+    .child-div, .child-div ul:last-child {
+        width: 18rem;
+    }
 
+    .child-div ul:last-child li {
+        width: 9rem;
+        display: inline;
+        float: left;
+    }
 
 }
 
@@ -1566,8 +1533,6 @@ html {
         right: -15px;
         top: 0px;
 }
-
-
 }
 
 
@@ -1579,45 +1544,3 @@ html {
 }
 
 
-
-@media only screen and (max-width: 380px) {
-    /* 购物车位置 */
-    .search-input {
-        width:13rem;
-
-}
-
-
-}
-
-
-
-/*页面内容自适应*/
-
-@media only screen and (max-width: 398px) {
-        /*评论楼层*/
-        .review-collection,.review-image,.review-photo,.v-image {
-        width: 24.3rem;
-        text-align: center;
-        }
-
-        .review-collection {
-            margin-left:1.5rem
-        }
-
-        .floor-wrap {
-            width:11rem;
-        }
-/*视频楼层*/
-        .play-icon {
-            margin-top:-50px;
-        }
-
-        .video-review {
-            position: relative;
-            top:20px;
-        }
-
-/*明星单品*/
-
-}
